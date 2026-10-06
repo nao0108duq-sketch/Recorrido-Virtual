@@ -8,60 +8,34 @@ html,
 body {
     width: 100%;
     height: 100%;
-    overflow: hidden;
 }
 
 body {
-    background: black;
+    overflow: hidden;
+
+    background-image: url("assets/transmileniofondo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
     font-family: "Press Start 2P", monospace;
 }
 
 
-/* =========================
-   VIDEO DE FONDO
-   ========================= */
+/* =====================================
+   TÍTULO
+   ===================================== */
 
-.fondo {
+.titulo-contenedor {
     position: fixed;
-    inset: 0;
 
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-    object-position: center;
-
-    z-index: -3;
-}
-
-
-/* =========================
-   CAPA SOBRE EL VIDEO
-   ========================= */
-
-.capa {
-    position: fixed;
-    inset: 0;
-
-    background: rgba(255, 255, 255, 0.05);
-
-    z-index: -2;
-}
-
-
-/* =========================
-   TITULO EN MOVIMIENTO
-   ========================= */
-
-.titulo-movimiento {
-    position: fixed;
-    top: 20px;
+    top: 18px;
     left: 0;
 
     width: 100%;
     overflow: hidden;
 
-    z-index: 20;
+    z-index: 100;
 
     pointer-events: none;
 }
@@ -70,69 +44,90 @@ body {
     display: flex;
     width: max-content;
 
-    animation: moverTitulo 18s linear infinite;
+    animation: moverTitulo 16s linear infinite;
 }
 
 .titulo-pista span {
     white-space: nowrap;
 
-    font-family: "Press Start 2P", monospace;
+    margin-right: 100px;
 
-    font-size: clamp(16px, 2vw, 28px);
+    color: red;
 
-    color: black;
-
-    margin-right: 80px;
-
-    /*
-    Pequeño borde blanco para que el negro
-    siga siendo visible sobre el fondo.
-    */
-    -webkit-text-stroke: 0.7px white;
+    font-size: clamp(26px, 3vw, 42px);
 }
 
 
-/* Movimiento infinito */
+/* Movimiento continuo */
 
 @keyframes moverTitulo {
-
     from {
         transform: translateX(0);
     }
 
     to {
-        transform: translateX(-50%);
+        transform: translateX(-33.333%);
     }
-
 }
 
 
-/* =========================
+/* =====================================
    ESCENA
-   ========================= */
+   ===================================== */
 
 .escena {
-    position: relative;
-
     width: 100%;
     height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
-/* =========================
+/* =====================================
+   BUS
+   ===================================== */
+
+.bus-contenedor {
+    position: relative;
+
+    width: min(58vw, 700px);
+
+    line-height: 0;
+}
+
+
+/* Imagen base */
+
+.bus-fondo {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    position: relative;
+
+    z-index: 1;
+}
+
+
+/* =====================================
    PASAJEROS
-   ========================= */
+   ===================================== */
 
 .pasajero {
     position: absolute;
 
     display: block;
 
+    z-index: 10;
+
     cursor: pointer;
 
     text-decoration: none;
 
-    z-index: 10;
+    transform-origin: center bottom;
 
     transition:
         transform 0.25s ease,
@@ -147,94 +142,100 @@ body {
 }
 
 
-/* =========================
+/* =====================================
    POSICIONES
-   ========================= */
+   BASADAS EN LA IMAGEN 7
+   ===================================== */
 
-/*
-   Estas posiciones son una primera aproximación.
-   Luego las ajustamos viendo cómo quedan sobre
-   tu fondo en Codespaces.
-*/
 
+/* Pasajero sentado azul con bufanda naranja (trancones)*/
 
 .pasajero1 {
-    width: 125px;
+    width: 12%;
 
-    left: 47%;
-    bottom: 15%;
-}
-
-
-.pasajero2 {
-    width: 120px;
-
-    left: 57%;
+    left: 4%;
     bottom: 16%;
 }
 
 
-.pasajero3 {
-    width: 105px;
+/*Pasajero con brazo levantado (intolerancia) */
 
-    left: 28%;
-    bottom: 13%;
+.pasajero2 {
+    width: 10%;
+
+    left: 13%;
+    bottom: 4.2%;
 }
 
+
+/*Mujer amarilla (acoso callejero)*/
+
+.pasajero3 {
+    width: 10%;
+
+    left: 32%;
+    bottom: 4.2%;
+}
+
+
+/* Pasajero sentado con bolso naranja (robos) */
 
 .pasajero4 {
-    width: 100px;
+    width: 12.5%;
 
-    left: 43%;
-    bottom: 12%;
+    left: 39%;
+    bottom: 15.2%;
 }
 
+
+/* Vendedor */
 
 .pasajero5 {
-    width: 110px;
+    width: 19%;
 
-    left: 34%;
-    bottom: 14%;
+    left: 47%;
+    bottom: 4.2%;
 }
 
 
-/* =========================
-   EFECTO AL PASAR EL CURSOR
-   ========================= */
+/* =====================================
+   HOVER
+   ===================================== */
 
 .pasajero:hover {
-    transform: scale(1.05);
+    transform: scale(1.06);
 
     filter: brightness(1.08);
 }
 
 
-/* =========================
+/* =====================================
    NUBE DE PENSAMIENTO
-   ========================= */
+   ===================================== */
 
 .pensamiento {
     position: absolute;
 
-    left: 50%;
-    bottom: 100%;
+    width: 220px;
 
-    transform: translateX(-50%) scale(0);
+    left: 150%;
+    bottom: 120%;
 
-    width: 210px;
+    transform: translateX(-50%) scale(0.7);
 
-    padding: 16px;
+    padding: 15px;
 
     background: white;
 
     border: 3px solid black;
+
     border-radius: 20px;
 
     color: black;
 
     font-family: "Press Start 2P", monospace;
 
-    font-size: 10px;
+    font-size: 9px;
 
     line-height: 1.7;
 
@@ -243,123 +244,81 @@ body {
     opacity: 0;
 
     transition:
-        transform 0.25s ease,
-        opacity 0.25s ease;
+        opacity 0.2s ease,
+        transform 0.2s ease;
 
     pointer-events: none;
 
-    z-index: 30;
-}
-
-
-/* Circulitos de la nube */
-
-.pensamiento::before,
-.pensamiento::after {
-    content: "";
-
-    position: absolute;
-
-    background: white;
-
-    border: 2px solid black;
-
-    border-radius: 50%;
-}
-
-
-.pensamiento::before {
-    width: 12px;
-    height: 12px;
-
-    bottom: -15px;
-    left: 25px;
-}
-
-
-.pensamiento::after {
-    width: 7px;
-    height: 7px;
-
-    bottom: -27px;
-    left: 15px;
+    z-index: 200;
 }
 
 
 /* Mostrar pensamiento */
 
 .pasajero:hover .pensamiento {
-    transform: translateX(-50%) scale(1);
-
     opacity: 1;
+
+    transform: translateX(-50%) scale(1);
 }
 
 
-/* =========================
-   INSTRUCCIÓN INFERIOR
-   ========================= */
+/* =====================================
+   BURBUJAS DE PENSAMIENTO
+   ===================================== */
 
-.instruccion {
-    position: fixed;
+.pensamiento::before {
+    content: "";
 
-    bottom: 20px;
-    left: 50%;
+    position: absolute;
 
-    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
 
-    color: black;
+    background: white;
 
-    font-family: "Press Start 2P", monospace;
+    border: 2px solid black;
 
-    font-size: 9px;
+    border-radius: 50%;
 
-    text-align: center;
+    left: 28px;
+    bottom: -16px;
+}
 
-    -webkit-text-stroke: 0.5px white;
+.pensamiento::after {
+    content: "";
 
-    z-index: 20;
+    position: absolute;
 
-    pointer-events: none;
+    width: 7px;
+    height: 7px;
+
+    background: white;
+
+    border: 2px solid black;
+
+    border-radius: 50%;
+
+    left: 17px;
+    bottom: -27px;
 }
 
 
-/* =========================
-   RESPONSIVE
-   ========================= */
+/* =====================================
+   PANTALLAS PEQUEÑAS
+   ===================================== */
 
 @media (max-width: 700px) {
 
-    .pasajero1 {
-        width: 95px;
-        left: 47%;
+    .bus-contenedor {
+        width: 88vw;
     }
 
-    .pasajero2 {
-        width: 90px;
-        left: 58%;
-    }
-
-    .pasajero3 {
-        width: 80px;
-        left: 25%;
-    }
-
-    .pasajero4 {
-        width: 75px;
-        left: 42%;
-    }
-
-    .pasajero5 {
-        width: 85px;
-        left: 33%;
+    .titulo-pista span {
+        font-size: 18px;
     }
 
     .pensamiento {
         width: 170px;
-        font-size: 8px;
-    }
-
-    .instruccion {
         font-size: 7px;
     }
 }
