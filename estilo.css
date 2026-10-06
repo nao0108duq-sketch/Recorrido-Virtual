@@ -1,0 +1,365 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: black;
+    font-family: "Press Start 2P", monospace;
+}
+
+
+/* =========================
+   VIDEO DE FONDO
+   ========================= */
+
+.fondo {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    z-index: -3;
+}
+
+
+/* =========================
+   CAPA SOBRE EL VIDEO
+   ========================= */
+
+.capa {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    z-index: -2;
+}
+
+
+/* =========================
+   TITULO EN MOVIMIENTO
+   ========================= */
+
+.titulo-movimiento {
+    position: fixed;
+    top: 20px;
+    left: 0;
+
+    width: 100%;
+    overflow: hidden;
+
+    z-index: 20;
+
+    pointer-events: none;
+}
+
+.titulo-pista {
+    display: flex;
+    width: max-content;
+
+    animation: moverTitulo 18s linear infinite;
+}
+
+.titulo-pista span {
+    white-space: nowrap;
+
+    font-family: "Press Start 2P", monospace;
+
+    font-size: clamp(16px, 2vw, 28px);
+
+    color: black;
+
+    margin-right: 80px;
+
+    /*
+    Pequeño borde blanco para que el negro
+    siga siendo visible sobre el fondo.
+    */
+    -webkit-text-stroke: 0.7px white;
+}
+
+
+/* Movimiento infinito */
+
+@keyframes moverTitulo {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+
+}
+
+
+/* =========================
+   ESCENA
+   ========================= */
+
+.escena {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+}
+
+
+/* =========================
+   PASAJEROS
+   ========================= */
+
+.pasajero {
+    position: absolute;
+
+    display: block;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    z-index: 10;
+
+    transition:
+        transform 0.25s ease,
+        filter 0.25s ease;
+}
+
+.pasajero img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+}
+
+
+/* =========================
+   POSICIONES
+   ========================= */
+
+/*
+   Estas posiciones son una primera aproximación.
+   Luego las ajustamos viendo cómo quedan sobre
+   tu fondo en Codespaces.
+*/
+
+
+.pasajero1 {
+    width: 125px;
+
+    left: 47%;
+    bottom: 15%;
+}
+
+
+.pasajero2 {
+    width: 120px;
+
+    left: 57%;
+    bottom: 16%;
+}
+
+
+.pasajero3 {
+    width: 105px;
+
+    left: 28%;
+    bottom: 13%;
+}
+
+
+.pasajero4 {
+    width: 100px;
+
+    left: 43%;
+    bottom: 12%;
+}
+
+
+.pasajero5 {
+    width: 110px;
+
+    left: 34%;
+    bottom: 14%;
+}
+
+
+/* =========================
+   EFECTO AL PASAR EL CURSOR
+   ========================= */
+
+.pasajero:hover {
+    transform: scale(1.05);
+
+    filter: brightness(1.08);
+}
+
+
+/* =========================
+   NUBE DE PENSAMIENTO
+   ========================= */
+
+.pensamiento {
+    position: absolute;
+
+    left: 50%;
+    bottom: 100%;
+
+    transform: translateX(-50%) scale(0);
+
+    width: 210px;
+
+    padding: 16px;
+
+    background: white;
+
+    border: 3px solid black;
+    border-radius: 20px;
+
+    color: black;
+
+    font-family: "Press Start 2P", monospace;
+
+    font-size: 10px;
+
+    line-height: 1.7;
+
+    text-align: center;
+
+    opacity: 0;
+
+    transition:
+        transform 0.25s ease,
+        opacity 0.25s ease;
+
+    pointer-events: none;
+
+    z-index: 30;
+}
+
+
+/* Circulitos de la nube */
+
+.pensamiento::before,
+.pensamiento::after {
+    content: "";
+
+    position: absolute;
+
+    background: white;
+
+    border: 2px solid black;
+
+    border-radius: 50%;
+}
+
+
+.pensamiento::before {
+    width: 12px;
+    height: 12px;
+
+    bottom: -15px;
+    left: 25px;
+}
+
+
+.pensamiento::after {
+    width: 7px;
+    height: 7px;
+
+    bottom: -27px;
+    left: 15px;
+}
+
+
+/* Mostrar pensamiento */
+
+.pasajero:hover .pensamiento {
+    transform: translateX(-50%) scale(1);
+
+    opacity: 1;
+}
+
+
+/* =========================
+   INSTRUCCIÓN INFERIOR
+   ========================= */
+
+.instruccion {
+    position: fixed;
+
+    bottom: 20px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: black;
+
+    font-family: "Press Start 2P", monospace;
+
+    font-size: 9px;
+
+    text-align: center;
+
+    -webkit-text-stroke: 0.5px white;
+
+    z-index: 20;
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 700px) {
+
+    .pasajero1 {
+        width: 95px;
+        left: 47%;
+    }
+
+    .pasajero2 {
+        width: 90px;
+        left: 58%;
+    }
+
+    .pasajero3 {
+        width: 80px;
+        left: 25%;
+    }
+
+    .pasajero4 {
+        width: 75px;
+        left: 42%;
+    }
+
+    .pasajero5 {
+        width: 85px;
+        left: 33%;
+    }
+
+    .pensamiento {
+        width: 170px;
+        font-size: 8px;
+    }
+
+    .instruccion {
+        font-size: 7px;
+    }
+}
