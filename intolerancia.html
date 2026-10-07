@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="estiloIntolerancia.css">
 
-    <!-- Tipografía -->
+    <!-- Tipografías -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -19,40 +19,79 @@
 <body>
 
     <!-- IMAGEN DE FONDO -->
-    <div class="fondo"></div>
+    <img
+        src="assets/busfondo.jpg"
+        alt=""
+        class="fondo"
+    >
 
 
-    <!-- CAPA OSCURA -->
+    <!-- CAPA SOBRE LA IMAGEN -->
     <div class="capa"></div>
 
 
-    <!-- FRASE PRINCIPAL -->
+    <!-- TITULO EN MOVIMIENTO -->
+    <div class="titulo-contenedor" aria-label="ESTACION: INTOLERANCIA">
+        <div class="titulo-pista" aria-hidden="true">
+            <span>ESTACION: INTOLERANCIA ✦</span>
+            <span>ESTACION: INTOLERANCIA ✦</span>
+            <span>ESTACION: INTOLERANCIA ✦</span>
+        </div>
+    </div>
+
+
+    <!-- FRASE CENTRAL -->
     <main class="contenido">
 
         <h1>
             Me encanta subir a Transmilenio,
-            la transición entre Bogotá y la muerte
+            la transición entre transmi y la muerte
             es casi imperceptible
         </h1>
 
     </main>
 
 
-    <!-- VIDEO -->
-    <div class="video-container">
-
+    <!-- VIDEOS -->
+    <div class="video-container video-1">
         <video autoplay muted loop playsinline>
             <source src="assets/intolerancia1.mp4" type="video/mp4">
         </video>
+        <div class="video-texto">INTOLERANCIA</div>
+    </div>
 
-        <div class="video-texto">
-            INTOLERANCIA
-        </div>
+    <div class="video-container video-2">
+        <video autoplay muted loop playsinline>
+            <source src="assets/intolerancia2.mp4" type="video/mp4">
+        </video>
+    </div>
 
+    <div class="video-container video-3">
+        <video autoplay muted loop playsinline>
+            <source src="assets/intolerancia3.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="video-container video-4">
+        <video autoplay muted loop playsinline>
+            <source src="assets/intolerancia4.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="video-container video-5">
+        <video autoplay muted loop playsinline>
+            <source src="assets/intolerancia5.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="video-container video-6">
+        <video autoplay muted loop playsinline>
+            <source src="assets/intolerancia6.mp4" type="video/mp4">
+        </video>
     </div>
 
 
-    <!-- BOTÓN PARA VOLVER -->
+    <!-- VOLVER -->
     <a href="index.html" class="volver">
         ← VOLVER AL BUS
     </a>
