@@ -7,11 +7,13 @@
 html,
 body {
     width: 100%;
-    height: 100%;
+    min-height: 100%;
 }
 
 body {
-    overflow: hidden;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
 
     background: black;
 
@@ -204,4 +206,59 @@ body {
 
 .consejos {
     transform: translateY(10px);
+}
+
+.seccion-agradecimiento {
+    position: relative;
+    z-index: 10;
+    min-height: 100vh;
+    padding: 110px 7vw 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    text-align: center;
+}
+
+.seccion-agradecimiento h1 {
+    max-width: 1100px;
+    color: black;
+    font-size: clamp(28px, 5vw, 68px);
+    line-height: 1.4;
+    -webkit-text-stroke: 1px white;
+    paint-order: stroke fill;
+}
+
+.imagenes-agradecimiento {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4vw;
+}
+
+.imagenes-agradecimiento img {
+    display: block;
+    width: min(26vw, 340px);
+    height: min(42vh, 380px);
+    object-fit: contain;
+    border: 8px solid rgb(245, 0, 0);
+}
+
+@media (max-width: 700px) {
+    .seccion-agradecimiento {
+        padding: 90px 5vw 70px;
+        gap: 32px;
+    }
+
+    .imagenes-agradecimiento {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .imagenes-agradecimiento img {
+        width: min(40vw, 220px);
+        height: min(30vh, 260px);
+    }
 }
