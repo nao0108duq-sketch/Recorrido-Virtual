@@ -1,0 +1,260 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    background: #b77bd5;
+
+    font-family: "Press Start 2P", monospace;
+}
+
+
+/* =====================================
+   TÍTULO EN MOVIMIENTO
+   ===================================== */
+
+.titulo-contenedor {
+    position: fixed;
+
+    top: 18px;
+    left: 0;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    z-index: 30;
+
+    pointer-events: none;
+}
+
+.titulo-pista {
+    display: flex;
+
+    width: max-content;
+
+    animation: moverTitulo 16s linear infinite;
+}
+
+.titulo-pista span {
+    margin-right: 80px;
+    color: rgb(245, 0, 0);
+    font-family: "Archivo Black", sans-serif;
+    font-size: clamp(18px, 2.4vw, 32px);
+    white-space: nowrap;
+    -webkit-text-stroke: 0.5px black;
+    text-shadow: 2px 2px 0 black, 4px 4px 0 rgba(0, 0, 0, 0.75), 0 0 14px rgba(0, 0, 0, 0.9);
+}
+
+
+/* Desplazamiento infinito */
+
+@keyframes moverTitulo {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-33.333%);
+    }
+}
+
+
+/* =====================================
+   CONTENIDO
+   ===================================== */
+
+.contenido {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: clamp(24px, 3vw, 48px);
+
+    padding: 80px 7vw 90px;
+}
+
+
+/* =====================================
+   VIDEO
+   ===================================== */
+
+.video-container {
+    width: min(35vw, 420px);
+
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    margin-top: 18px;
+}
+
+.video-container video {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    max-height: 65vh;
+
+    object-fit: contain;
+
+    border: 3px solid black;
+
+    box-shadow: 8px 8px 0 black;
+}
+
+.boton-segura {
+    display: inline-block;
+    padding: 14px 22px;
+    background: #fff;
+    color: #000;
+    text-decoration: none;
+    border: 3px solid #000;
+    font-family: "Press Start 2P", monospace;
+    font-size: clamp(9px, 1vw, 12px);
+    line-height: 1.5;
+    text-align: center;
+    box-shadow: 6px 6px 0 #000;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.boton-segura:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0 #000;
+}
+
+.imagen-acoso {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    border: 3px solid #000;
+    box-shadow: 8px 8px 0 #000;
+}
+
+
+/* =====================================
+   INFO LATERAL
+   ===================================== */
+
+.info-acoso {
+    flex: 1;
+    max-width: 760px;
+    padding: 24px 28px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 3px solid black;
+    box-shadow: 8px 8px 0 black;
+    color: black;
+    font-family: "Press Start 2P", monospace;
+    font-size: clamp(10px, 1.1vw, 14px);
+    line-height: 1.8;
+}
+
+.info-acoso h2 {
+    margin: 0 0 18px;
+    color: #000;
+    font-size: clamp(18px, 2vw, 28px);
+    line-height: 1.4;
+}
+
+.info-acoso p {
+    margin: 0 0 18px;
+}
+
+.info-acoso a {
+    color: #5d0b7d;
+    text-decoration: underline;
+}
+
+.info-acoso strong {
+    color: #000;
+}
+
+.info-acoso ul {
+    margin: 0;
+    padding-left: 1.2em;
+}
+
+.info-acoso li {
+    margin-bottom: 12px;
+}
+
+
+/* =====================================
+   BOTÓN VOLVER
+   ===================================== */
+
+.volver {
+    position: fixed;
+    left: 25px;
+    bottom: 25px;
+    z-index: 30;
+    padding: 10px 13px;
+    background: black;
+    color: white;
+    text-decoration: none;
+    font-family: "Space Mono", monospace;
+    font-size: 10px;
+    border: 2px solid black;
+    transition: 0.2s;
+}
+
+.volver:hover {
+    background: white;
+    color: black;
+}
+
+
+/* =====================================
+   PANTALLAS PEQUEÑAS
+   ===================================== */
+
+@media (max-width: 700px) {
+
+    .titulo-pista span {
+        font-size: 18px;
+    }
+
+    .contenido {
+        flex-direction: column;
+        align-items: center;
+        padding: 100px 6vw 80px;
+    }
+
+    .video-container {
+        width: 65vw;
+        max-width: 350px;
+    }
+
+    .imagen-acoso {
+        max-width: 100%;
+    }
+
+    .info-acoso {
+        width: 100%;
+        max-width: 100%;
+        padding: 18px 16px;
+        font-size: 10px;
+    }
+
+    .volver {
+        left: 15px;
+        bottom: 15px;
+
+        font-size: 8px;
+    }
+}
