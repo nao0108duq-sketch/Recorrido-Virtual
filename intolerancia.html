@@ -17,6 +17,29 @@
 </head>
 
 <body>
+    <audio id="sonido-intolerancia" autoplay loop>
+        <source src="assets/lo%20que%20no%20hay%20son%20asientos.mp3" type="audio/mpeg">
+        Tu navegador no admite la reproducción de audio.
+    </audio>
+    <script>
+        const sonidoIntolerancia = document.getElementById("sonido-intolerancia");
+
+        sonidoIntolerancia.play().catch((error) => {
+            console.info("El navegador iniciará el sonido después de una interacción.", error);
+
+            const reintentarSonido = () => {
+                sonidoIntolerancia.play().then(() => {
+                    document.removeEventListener("pointerdown", reintentarSonido);
+                    document.removeEventListener("keydown", reintentarSonido);
+                }).catch((error) => {
+                    console.error("No se pudo reproducir el sonido de intolerancia.", error);
+                });
+            };
+
+            document.addEventListener("pointerdown", reintentarSonido);
+            document.addEventListener("keydown", reintentarSonido);
+        });
+    </script>
 
     <!-- IMAGEN DE FONDO -->
     <img

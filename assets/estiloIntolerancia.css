@@ -16,9 +16,7 @@ body {
 }
 
 
-/* =====================================
-   IMAGEN DE FONDO
-   ===================================== */
+/* IMAGEN DE FONDO*/
 
 .fondo {
     position: fixed;
@@ -36,10 +34,6 @@ body {
 }
 
 
-/* =====================================
-   CAPA SUTIL
-   ===================================== */
-
 .capa {
     position: fixed;
 
@@ -51,9 +45,7 @@ body {
 }
 
 
-/* =====================================
-   TITULO EN MOVIMIENTO
-   ===================================== */
+/* TITULO EN MOVIMIENTO */
 
 .titulo-contenedor {
     position: fixed;
@@ -92,9 +84,7 @@ body {
 }
 
 
-/* =====================================
-   FRASE CENTRAL
-   ===================================== */
+/* FRASE CENTRAL */
 
 .contenido {
     position: fixed;

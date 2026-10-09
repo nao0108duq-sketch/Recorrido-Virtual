@@ -19,6 +19,29 @@
 </head>
 
 <body>
+    <audio id="sonido-principal" autoplay loop>
+        <source src="assets/Sonido.mp3" type="audio/mpeg">
+        Tu navegador no admite la reproducción de audio.
+    </audio>
+    <script>
+        const sonidoPrincipal = document.getElementById("sonido-principal");
+
+        sonidoPrincipal.play().catch((error) => {
+            console.info("El navegador iniciará el sonido después de una interacción.", error);
+
+            const reintentarSonido = () => {
+                sonidoPrincipal.play().then(() => {
+                    document.removeEventListener("pointerdown", reintentarSonido);
+                    document.removeEventListener("keydown", reintentarSonido);
+                }).catch((error) => {
+                    console.error("No se pudo reproducir el sonido principal.", error);
+                });
+            };
+
+            document.addEventListener("pointerdown", reintentarSonido);
+            document.addEventListener("keydown", reintentarSonido);
+        });
+    </script>
 
     <!-- TÍTULO -->
     <div class="titulo-contenedor">
