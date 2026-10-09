@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+
+    background-image: url("assets/fondorobo.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    font-family: "Press Start 2P", monospace;
+    cursor: none;
+}
+
+body * {
+    cursor: none;
+}
+
+.titulo-contenedor {
+    position: fixed;
+    top: 18px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    z-index: 30;
+    pointer-events: none;
+}
+
+.titulo-pista {
+    display: flex;
+    width: max-content;
+    animation: moverTitulo 16s linear infinite;
+}
+
+.titulo-pista span {
+    margin-right: 80px;
+    color: rgb(245, 0, 0);
+    font-family: "Archivo Black", sans-serif;
+    font-size: clamp(18px, 2.4vw, 32px);
+    white-space: nowrap;
+    -webkit-text-stroke: 0.5px black;
+    text-shadow: 2px 2px 0 black, 4px 4px 0 rgba(0, 0, 0, 0.75), 0 0 14px rgba(0, 0, 0, 0.9);
+}
+
+@keyframes moverTitulo {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-33.333%);
+    }
+}
+
+.contenido {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 6vw;
+}
+
+.video-hurto {
+    display: block;
+    width: min(32vw, 420px);
+    max-height: 55vh;
+    object-fit: contain;
+    border: 3px solid black;
+    
+}
+
+.cursor-ladron,
+.objetivo-huyendo {
+    position: fixed;
+    z-index: 50;
+    font-family: sans-serif;
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+}
+
+.cursor-ladron {
+    top: 0;
+    left: 0;
+    display: none;
+    font-size: 55px;
+    transform: translate(-20%, -20%);
+}
+
+.objetivo-huyendo {
+    top: 0;
+    left: 0;
+    font-size: 55px;
+    will-change: transform;
+}
+
+.objetivo-huyendo.atrapado {
+    display: none;
+}
+
+.volver {
+    position: fixed;
+    left: 25px;
+    bottom: 25px;
+    z-index: 30;
+    padding: 10px 13px;
+    background: black;
+    color: white;
+    text-decoration: none;
+    font-family: "Space Mono", monospace;
+    font-size: 10px;
+    border: 2px solid black;
+    transition: 0.2s;
+}
+
+.volver:hover {
+    background: white;
+    color: black;
+}
+
+@media (max-width: 700px) {
+    .titulo-pista span {
+        font-size: 18px;
+    }
+
+    .video-hurto {
+        width: min(68vw, 360px);
+        max-height: 50vh;
+    }
+
+    .volver {
+        left: 15px;
+        bottom: 15px;
+        font-size: 8px;
+    }
+}
